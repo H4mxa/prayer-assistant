@@ -1,4 +1,10 @@
 import React from 'react';
+
+// redux -------------
+import { Provider } from 'react-redux';
+import initStore from './store';
+// --------------
+
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './Pages/Home';
 import FaqPage from './Pages/Faq';
@@ -6,13 +12,15 @@ import ProfilePage from './Pages/Profile';
 import ServicesPage from './Pages/Services';
 import LoginPage from './Pages/Login';
 import RegisterPage from './Pages/Register';
-import Sidebar from 'Components/Sidebar';
 
+import Sidebar from 'Components/Sidebar';
 import Navbar from 'Components/Navbar';
+
+const store = initStore();
 
 function App() {
   return (
-    <div>
+    <Provider store={store}>
       <Router>
         <Navbar />
         <Navbar id='navbar-clone' />
@@ -38,7 +46,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
-    </div>
+    </Provider>
   );
 }
 

@@ -1,6 +1,12 @@
 /* eslint jsx-a11y/anchor-is-valid: 0 */
 
 import React from 'react';
+
+/* To access redux store we need to use connect function from react-redux. but remember uh must specify the 
+   redux store in "Provider" wrapper
+*/
+import { connect } from 'react-redux'; // we will use connection function on our component. connect func is high order component
+// -------------------------------------------
 import Hero from 'Components/Hero';
 import { getServices } from 'store';
 import ServiceItem from 'Components/service/ServiceItem';
@@ -25,6 +31,9 @@ class Home extends React.Component {
   render() {
     // destructrize the services from state
     const { services } = this.state;
+    // redux test state is specified here
+    const { testingData, testingNumber } = this.props.test;
+    debugger;
     return (
       <div>
         <Hero />
@@ -49,4 +58,16 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+// before your page is displaying you are getting here into connect function
+const mapStateToProps = (state) => {
+  return {
+    /* we ar getting Test as prop into our Home component. You will get it from State.service of redux store.
+       state.service is specifed in redux store and after that you have access to this test into props of this page
+       This key is what uh want to call your props in component. i write here test which now contain object data
+       testingNumber and testingData
+    */
+    test: state.service,
+  };
+};
+
+export default connect(mapStateToProps)(Home);

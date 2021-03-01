@@ -21,7 +21,7 @@ class Home extends React.Component {
     debugger;
     //dispatch is dispatching actions
     // fetch services is action creator function that return simple object
-    this.props.dispatch(fetchServices);
+    this.props.dispatch(fetchServices());
 
     // const services = getServices();
     // this.setState({ services: services });
@@ -35,10 +35,10 @@ class Home extends React.Component {
 
   render() {
     // destructrize the services from state
-    const { services } = this.state;
-    // redux test state is specified here
-    const { testingData, testingNumber } = this.props.test;
-    debugger;
+    // Now we are getting services from props not from state
+    const { services } = this.props;
+    // // redux test state is specified here
+    // const { testingData, testingNumber } = this.props.test;
     return (
       <div>
         <Hero />
@@ -71,7 +71,7 @@ const mapStateToProps = (state) => {
        This key is what uh want to call your props in component. i write here test which now contain object data
        testingNumber and testingData
     */
-    test: state.service,
+    services: state.service.items,
   };
 };
 

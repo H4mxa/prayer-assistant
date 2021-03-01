@@ -24,8 +24,11 @@ const services = [
 
 export const fetchServices = () => {
   return {
-    // This will be type of your action, maybe a string saying type of this actions is fetch_services
+    /* Action return object, and in this object we need to specify type
+      This will be type of your action, maybe a string saying type of this actions is fetch_services
+    */
     type: 'FETCH_SERVICES',
+    // optionally you can send here some data.
     services, // Since the key and value name is same we can write one time services
     /*
     now we need to dispatch this actions

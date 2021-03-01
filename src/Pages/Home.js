@@ -8,8 +8,8 @@ import React from 'react';
 import { connect } from 'react-redux'; // we will use connection function on our component. connect func is high order component
 // -------------------------------------------
 import Hero from 'Components/Hero';
-import { getServices } from 'store';
 import ServiceItem from 'Components/service/ServiceItem';
+import { fetchServices } from 'actions';
 
 class Home extends React.Component {
   // we set these service "store/service.js" to a state of Home page and then we will iterate on them
@@ -18,8 +18,13 @@ class Home extends React.Component {
   };
 
   componentDidMount() {
-    const services = getServices();
-    this.setState({ services: services });
+    debugger;
+    //dispatch is dispatching actions
+    // fetch services is action creator function that return simple object
+    this.props.dispatch(fetchServices);
+
+    // const services = getServices();
+    // this.setState({ services: services });
   }
 
   renderServices = (services) => {

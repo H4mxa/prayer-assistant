@@ -18,7 +18,6 @@ class Home extends React.Component {
   };
 
   componentDidMount() {
-    debugger;
     //dispatch is dispatching actions
     // fetch services is action creator function that return simple object
     this.props.dispatch(fetchServices());

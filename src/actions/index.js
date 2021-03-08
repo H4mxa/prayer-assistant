@@ -1,4 +1,5 @@
 import { FETCH_SERVICES } from 'types';
+import db from 'db';
 
 const services = [
   {
@@ -25,6 +26,17 @@ const services = [
 ];
 
 export const fetchServices = () => {
+  // fetching data from firebase
+  db.collection('services')
+    // this will get my data
+    .get()
+    .then((snapshot) => {
+      // now uh can get this data from snapshot like this
+      snapshot.docs.forEach((doc) => {
+        const service = doc.data();
+        console.log(service);
+      });
+    });
   return {
     /* Action return object, and in this object we need to specify type
       This will be type of your action, maybe a string saying type of this actions is fetch_services

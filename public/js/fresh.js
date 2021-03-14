@@ -116,7 +116,7 @@ $(document).ready(function () {
     $(this).closest('.modal').removeClass('is-active');
   });
 
-  // Select all links with hashes
+  //  Select all links with hashes
   $('a[href*="#"]')
     // Remove links that don't actually link to anything
     .not('[href="#"]')

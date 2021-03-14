@@ -23,6 +23,7 @@ const Counter = (props) => {
     setCount(newCount);
     onChange('increment', newCount);
   };
+
   const decrement = () => {
     const newCount = count - 1;
     setCount(newCount);

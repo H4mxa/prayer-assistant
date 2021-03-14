@@ -1,5 +1,4 @@
 /* eslint jsx-a11y/anchor-is-valid: 0 */
-
 import React from 'react';
 
 const Sidebar = () => {

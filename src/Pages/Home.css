@@ -30,7 +30,6 @@ button:active {
   box-shadow: 0 5px midnightblue;
   transform: translateY(4px);
 }
-
 .counter-number {
   display: inline-block;
   margin: 10px;

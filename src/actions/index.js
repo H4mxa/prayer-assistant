@@ -1,6 +1,8 @@
-import { FETCH_SERVICES } from 'types';
+import { FETCH_SERVICES_SUCCESS } from 'types';
 import db from 'db';
 
+/*
+// fecting from database
 const services = [
   {
     id: '2asd8sa7d98',
@@ -24,29 +26,29 @@ const services = [
       'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
   },
 ];
-
+*/
 export const fetchServices = () => {
   // fetching data from firebase
-  db.collection('services')
-    // this will get my data
-    .get()
-    .then((snapshot) => {
-      // now uh can get this data from snapshot like this
-      snapshot.docs.forEach((doc) => {
-        const service = doc.data();
-        console.log(service);
-      });
-    });
-  return {
-    /* Action return object, and in this object we need to specify type
-      This will be type of your action, maybe a string saying type of this actions is fetch_services
-    */
-    type: FETCH_SERVICES,
-    // optionally you can send here some data.
-    services, // Since the key and value name is same we can write one time services
-    /*
-    now we need to dispatch this actions
-    The general concept is to dispatch action when you want to perform so much changes in your store
-    */
-  };
+  return (
+    db
+      .collection('services')
+      // this will get my data
+      .get()
+      .then((snapshot) => {
+        // now uh can get this data from snapshot like this
+        const services = snapshot.docs.map((doc) => doc.data());
+        return {
+          /* Action return object, and in this object we need to specify type
+            This will be type of your action, maybe a string saying type of this actions is fetch_services
+          */
+          type: FETCH_SERVICES_SUCCESS,
+          // optionally you can send here some data.
+          services, // Since the key and value name is same we can write one time services
+          /*
+          now we need to dispatch this actions
+          The general concept is to dispatch action when you want to perform so much changes in your store
+          */
+        };
+      })
+  );
 };

@@ -13,10 +13,20 @@ const addLoggerToDispatch = (store) => {
     console.log('%c prev state', 'color: gray', store.getState());
     console.log('%c action', 'color: blue', action);
     const returnValue = dispatch(action);
-    // Now as we dispatch action action, our store should be updated. dispatch will called reducer and it should update our state
+    // Now as we dispatch action, our store should be updated. dispatch will called reducer and it should update our state
     console.log('%c next state', 'color: green', store.getState());
     console.groupEnd(action.type);
     return returnValue;
+  };
+};
+
+const addPromiseToDispatch = (store) => {
+  const dispatch = store.dispatch;
+  return (action) => {
+    if (typeof action.then === 'function') {
+      return action.then(dispatch);
+    }
+    return dispatch(action);
   };
 };
 
@@ -48,7 +58,12 @@ const initStore = () => {
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   );
   // overwriting dispatch function
-  store.dispatch = addLoggerToDispatch(store);
+
+  // add dispatch to addlogger only when we are in development environment
+  if (process.env.NODE_ENV !== 'production') {
+    store.dispatch = addLoggerToDispatch(store);
+  }
+  store.dispatch = addPromiseToDispatch(store);
   return store;
 };
 

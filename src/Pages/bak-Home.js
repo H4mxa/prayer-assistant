@@ -86,7 +86,7 @@ class Home extends Component {
     super(props);
     this.state = {
       message: 'Super Message!!!',
-      Tnumber: 99
+      Tnumber: 99,
     };
   }
 
@@ -119,7 +119,6 @@ class Home extends Component {
       alert(`Your number was decremented! Current value is ${count}`);
     }
   };
-
   /*
         render is also lifecycle function. 
         render is call first
@@ -131,7 +130,13 @@ class Home extends Component {
       <div className='container'>
         <h1>I am Home Class</h1>
         <p>{message}</p>
-        <button onClick={() => { this.setState({ Tnumber: Tnumber + 1 }) }}>Testing Increment</button>
+        <button
+          onClick={() => {
+            this.setState({ Tnumber: Tnumber + 1 });
+          }}
+        >
+          Testing Increment
+        </button>
         <Counter
           testNumber={Tnumber}
           title='I am Counter Component!'

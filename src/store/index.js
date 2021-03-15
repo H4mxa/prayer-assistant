@@ -1,7 +1,7 @@
 import { createStore, combineReducers } from 'redux';
 import servicesReducer from 'reducers';
 
-const addLoggerToDispatch = (store) => {
+const logger = (store) => {
   return (nextDispatch) => {
     /*
       we are returning here function which will take some action. 
@@ -21,7 +21,7 @@ const addLoggerToDispatch = (store) => {
   };
 };
 
-const addPromiseToDispatch = (store) => (nextDispatch) => (action) => {
+const promise = (store) => (nextDispatch) => (action) => {
   if (typeof action.then === 'function') {
     return action.then(nextDispatch);
   }
@@ -44,7 +44,7 @@ const applyMiddlewares = (store, middlewares) => {
     connect
 */
 const initStore = () => {
-  const middlewares = [addPromiseToDispatch];
+  const middlewares = [promise];
   // initialize store
   const serviceApp = combineReducers({
     // You'll specify here "state" you want to keep in your application
@@ -69,7 +69,7 @@ const initStore = () => {
   // overwriting dispatch function
   // add dispatch to addlogger only when we are in development environment
   if (process.env.NODE_ENV !== 'production') {
-    middlewares.push(addLoggerToDispatch);
+    middlewares.push(logger);
   }
   applyMiddlewares(store, middlewares);
   return store;

@@ -36,7 +36,10 @@ export const fetchServices = () => {
       .get()
       .then((snapshot) => {
         // now uh can get this data from snapshot like this
-        const services = snapshot.docs.map((doc) => doc.data());
+        const services = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
         return {
           /* Action return object, and in this object we need to specify type
             This will be type of your action, maybe a string saying type of this actions is fetch_services

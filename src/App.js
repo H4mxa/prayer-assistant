@@ -17,11 +17,15 @@ import RegisterPage from './Pages/Register';
 import Sidebar from 'Components/Sidebar';
 import Navbar from 'Components/Navbar';
 
+import { AnimatePresence } from 'framer-motion';
+import GlobalStyle from 'Components/GlobalStyle';
+
 const store = initStore();
 
 function App() {
   return (
     <Provider store={store}>
+      <GlobalStyle />
       <Router>
         <Navbar />
         <Navbar id='navbar-clone' />

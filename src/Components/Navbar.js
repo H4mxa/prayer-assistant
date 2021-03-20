@@ -1,9 +1,12 @@
 /* eslint jsx-a11y/anchor-is-valid: 0 */
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 const Navbar = (props) => {
+  const { pathname } = useLocation();
   return (
     <nav
       id={props.id || ''}
@@ -13,10 +16,6 @@ const Navbar = (props) => {
     >
       <div className='container'>
         <div className='navbar-brand'>
-          <Link to='/' className='navbar-item'>
-            <div className='title'>Servicario</div>
-          </Link>
-
           <a className='navbar-item is-hidden-desktop is-hidden-tablet'>
             <div
               id='menu-icon-wrapper'
@@ -79,10 +78,13 @@ const Navbar = (props) => {
                 ></button>
               </div>
             </a>
+            <Link to='/' className='navbar-item is-secondary'>
+              <div id='logo'>Prayer Assistant</div>
+            </Link>
           </div>
 
-          <div className='navbar-end'>
-            <Link to='/' className='navbar-item is-secondary'>
+          <div className='navbar-end parent'>
+            <Link to='/' className='navbar-item is-secondary child'>
               Home
             </Link>
             <Link to='/services' className='navbar-item is-secondary'>

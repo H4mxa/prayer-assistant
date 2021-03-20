@@ -640,12 +640,13 @@ Hero styles
 }
 
 /* ==========================================================================
-Navbar
+  Navbar
 ========================================================================== */
 
 //Navbar
 .navbar.is-fresh {
   position: relative;
+  background: #1b1b1b;
   min-height: 3.8rem;
   transition: all 0.3s;
   z-index: 29;
@@ -738,6 +739,11 @@ Navbar
       }
     }
   }
+  #logo {
+    font-size: 1.5rem;
+    font-family: 'Lobster', cursive;
+    font-weight: yellow !important;
+  }
 }
 
 //Cloned fixed navbar
@@ -746,7 +752,7 @@ Navbar
   top: 0;
   left: 0;
   width: 100%;
-  background: $white;
+  background: #1b1b1b;
   transform: translateY(-100%);
   z-index: 100;
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.12);

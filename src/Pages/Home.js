@@ -8,8 +8,13 @@ import React from 'react';
 import { connect } from 'react-redux'; // we will use connection function on our component. connect func is high order component
 // -------------------------------------------
 import Hero from 'Components/Hero';
-import ServiceItem from 'Components/service/ServiceItem';
 import { fetchServices } from 'actions';
+
+/* components  */
+import ServiceItem from 'Components/service/ServiceItem';
+import { motion } from 'framer-motion';
+import { pageAnimation } from '../animation';
+import MainSection from 'Components/MainSection';
 
 class Home extends React.Component {
   // we set these service "store/service.js" to a state of Home page and then we will iterate on them
@@ -40,23 +45,34 @@ class Home extends React.Component {
     // const { testingData, testingNumber } = this.props.test;
     return (
       <div>
-        <Hero />
-        <section className='section section-feature-grey is-medium'>
-          <div className='container'>
-            <div className='title-wrapper has-text-centered'>
-              <h2 className='title is-2'>Great Power Comes </h2>
-              <h3 className='subtitle is-5 is-muted'>
-                With great Responsability
-              </h3>
-              <div className='divider is-centered'></div>
-            </div>
+        <motion.div
+          exit='exit'
+          variants={pageAnimation}
+          initial='hidden'
+          animate='show'
+        >
+          <MainSection />
+          {/* <Hero /> */}
+          <section className='section section-feature-grey is-medium'>
+            <div className='container'>
+              <div className='title-wrapper has-text-centered'>
+                <h2 className='title is-2'>Prayer Assistant</h2>
+                <h3 className='subtitle is-5 is-muted'>
+                  It's one of the best islamic app with lot of information.
+                  Starting from Qibla to Quran, Hadith, Tafseer etc. I enjoying
+                  reading the verses of Quran everyday all thanks to this
+                  wonderful app
+                </h3>
+                <div className='divider is-centered'></div>
+              </div>
 
-            {/* iterating over services */}
-            <div className='content-wrapper'>
-              <div className='columns'>{this.renderServices(services)}</div>
+              {/* iterating over services */}
+              <div className='content-wrapper'>
+                <div className='columns'>{this.renderServices(services)}</div>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </motion.div>
       </div>
     );
   }

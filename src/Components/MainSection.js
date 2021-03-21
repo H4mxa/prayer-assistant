@@ -1,6 +1,6 @@
 import React from 'react';
 import home from '../img/home.jpg';
-import { About, Description, Image, Hide, extaa } from '../style';
+import { About, Description, Image, Hide } from '../style';
 //Framer Motion
 import { motion } from 'framer-motion';
 import { titleAnim, fade, photoAnim } from '../animation';

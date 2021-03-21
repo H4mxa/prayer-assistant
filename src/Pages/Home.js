@@ -11,6 +11,7 @@ import Hero from 'Components/Hero';
 import { fetchServices } from 'actions';
 
 /* components  */
+import MidSection from 'Components/MidSection';
 import ServiceItem from 'Components/service/ServiceItem';
 import { motion } from 'framer-motion';
 import { pageAnimation } from '../animation';
@@ -53,19 +54,13 @@ class Home extends React.Component {
         >
           <MainSection />
           {/* <Hero /> */}
+          <section className='section section-yellow is-medium'>
+            <div className='container'>
+              <MidSection />
+            </div>
+          </section>
           <section className='section section-feature-grey is-medium'>
             <div className='container'>
-              <div className='title-wrapper has-text-centered'>
-                <h2 className='title is-2'>Prayer Assistant</h2>
-                <h3 className='subtitle is-5 is-muted'>
-                  It's one of the best islamic app with lot of information.
-                  Starting from Qibla to Quran, Hadith, Tafseer etc. I enjoying
-                  reading the verses of Quran everyday all thanks to this
-                  wonderful app
-                </h3>
-                <div className='divider is-centered'></div>
-              </div>
-
               {/* iterating over services */}
               <div className='content-wrapper'>
                 <div className='columns'>{this.renderServices(services)}</div>
@@ -86,7 +81,7 @@ const mapStateToProps = (state) => {
        This key is what uh want to call your props in component. i write here test which now contain object data
        testingNumber and testingData
     */
-    services: state.service.items,
+    services: state.services.items,
   };
 };
 

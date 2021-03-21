@@ -2,6 +2,9 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 export const About = styled(motion.div)`
+  @media (max-width: 1300px) {
+    font-size: 85%;
+  }
   min-height: 90vh;
   display: flex;
   align-items: center;
@@ -42,3 +45,5 @@ export const Image = styled.div`
 export const Hide = styled.div`
   overflow: hidden;
 `;
+
+export const Scroll = styled(motion.div)``;

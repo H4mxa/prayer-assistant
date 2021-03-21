@@ -7,7 +7,7 @@ const GlobalStyle = createGlobalStyle`
         box-sizing:border-box;
     }
     html{
-        @media (max-width: 1500px) {
+        @media (max-width: 1300px) {
             font-size: 85%;
         }
     }
@@ -58,6 +58,7 @@ const GlobalStyle = createGlobalStyle`
     }
     .my-font{
         font-family: 'Cinzel Decorative', cursive;
+        color: white;
     }
 `;
 export default GlobalStyle;

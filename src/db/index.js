@@ -4,13 +4,13 @@ import 'firebase/firestore'; // importing firestore because we want to initializ
 // initializing database
 const db = firebase
   .initializeApp({
-    apiKey: 'AIzaSyAhGCTS09OTTSfMiCT72t459cETiUxBGME',
-    authDomain: 'prayerassistant-77424.firebaseapp.com',
-    projectId: 'prayerassistant-77424',
-    storageBucket: 'prayerassistant-77424.appspot.com',
-    messagingSenderId: '1042925594814',
-    appId: '1:1042925594814:web:9f75c37ac704c94fa816ef',
-    measurementId: 'G-TLSQ0NF69Z',
+    apiKey: 'AIzaSyB0HATy4aiixWfKu0Kj4DQfhjb_IZCfVks',
+    authDomain: 'prayerassistant-8e8db.firebaseapp.com',
+    projectId: 'prayerassistant-8e8db',
+    storageBucket: 'prayerassistant-8e8db.appspot.com',
+    messagingSenderId: '591572018291',
+    appId: '1:591572018291:web:f1ec57ae971daec51fb606',
+    measurementId: 'G-4ENXQY3S6T',
   })
 
   // executing here firestore function

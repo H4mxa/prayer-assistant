@@ -81,7 +81,7 @@ const mapStateToProps = (state) => {
        This key is what uh want to call your props in component. i write here test which now contain object data
        testingNumber and testingData
     */
-    services: state.services.items,
+    services: state.services.all,
   };
 };
 

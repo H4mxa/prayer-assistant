@@ -28,6 +28,14 @@ const promise = (store) => (nextDispatch) => (action) => {
   return nextDispatch(action);
 };
 
+const thunk = (store) => (nextDispatch) => (action) => {
+  if (typeof action === 'function') {
+    return action(store.dispatch);
+  } else {
+    return nextDispatch(action);
+  }
+};
+
 const applyMiddlewares = (store, middlewares) => {
   middlewares
     .slice()
@@ -44,7 +52,7 @@ const applyMiddlewares = (store, middlewares) => {
     connect
 */
 const initStore = () => {
-  const middlewares = [promise];
+  const middlewares = [thunk];
 
   const browserSupport =
     window.__REDUX_DEVTOOLS_EXTENSION__ &&

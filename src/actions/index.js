@@ -33,25 +33,22 @@ const services = [
 ];
 */
 
-export const restPreviousService = () => ({
-  type: FETCH_SERVICE_SUCCESS,
-  service: {},
-});
-
-export const requestService = () => ({
-  type: REQUEST_SERVICE,
-});
-
-export const fetchServices = () => {
-  return api.fetchServices().then((services) => ({
-    type: FETCH_SERVICES_SUCCESS,
-    services,
-  }));
+export const fetchServices = () => (dispatch) => {
+  return api.fetchServices().then((services) =>
+    dispatch({
+      type: FETCH_SERVICES_SUCCESS,
+      services,
+    })
+  );
 };
 
-export const fetchServiceById = (serviceId) => {
-  return api.fetchServiceById(serviceId).then((service) => ({
-    type: FETCH_SERVICE_SUCCESS,
-    service,
-  }));
+export const fetchServiceById = (serviceId) => (dispatch) => {
+  dispatch({ type: FETCH_SERVICE_SUCCESS, service: {} });
+  dispatch({ type: REQUEST_SERVICE });
+  return api.fetchServiceById(serviceId).then((service) =>
+    dispatch({
+      type: FETCH_SERVICE_SUCCESS,
+      service,
+    })
+  );
 };

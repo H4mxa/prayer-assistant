@@ -1,4 +1,8 @@
-import { FETCH_SERVICES_SUCCESS, FETCH_SERVICE_SUCCESS } from 'types';
+import {
+  FETCH_SERVICES_SUCCESS,
+  FETCH_SERVICE_SUCCESS,
+  REQUEST_SERVICE,
+} from 'types';
 
 import * as api from 'api';
 
@@ -28,6 +32,16 @@ const services = [
   },
 ];
 */
+
+export const restPreviousService = () => ({
+  type: FETCH_SERVICE_SUCCESS,
+  service: {},
+});
+
+export const requestService = () => ({
+  type: REQUEST_SERVICE,
+});
+
 export const fetchServices = () => {
   return api.fetchServices().then((services) => ({
     type: FETCH_SERVICES_SUCCESS,

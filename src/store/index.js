@@ -30,7 +30,7 @@ const promise = (store) => (nextDispatch) => (action) => {
 
 const thunk = (store) => (nextDispatch) => (action) => {
   if (typeof action === 'function') {
-    return action(store.dispatch);
+    return action(store.dispatch, store.getState);
   } else {
     return nextDispatch(action);
   }

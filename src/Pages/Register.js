@@ -1,7 +1,17 @@
-import React from 'react'
-import RegisterForm from 'Components/auth/RegisterForm'
+import React from "react";
+import { connect } from "react-redux";
+import RegisterForm from "Components/auth/RegisterForm";
+import { register } from "actions";
 
-const Register = () => {
+const Register = (props) => {
+  const registerUser = (userData) => {
+    debugger;
+    props.dispatch(register(userData)).then(
+      (_) => {},
+      (errorMessage) => {}
+    );
+  };
+
   return (
     <div className="auth-page">
       <div className="container has-text-centered">
@@ -10,9 +20,12 @@ const Register = () => {
           <p className="subtitle has-text-grey">Please Register to proceed.</p>
           <div className="box">
             <figure className="avatar">
-              <img src="https://source.unsplash.com/128x128/?placeholder,avatar" alt="Company Logo" />
+              <img
+                src="https://source.unsplash.com/128x128/?placeholder,avatar"
+                alt="Company Logo"
+              />
             </figure>
-            <RegisterForm />
+            <RegisterForm onRegister={registerUser} />
           </div>
           <p className="has-text-grey">
             <a>Sign In With Google</a>&nbsp;
@@ -22,7 +35,7 @@ const Register = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Register
+export default connect()(Register);

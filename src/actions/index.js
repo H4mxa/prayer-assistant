@@ -2,9 +2,9 @@ import {
   FETCH_SERVICES_SUCCESS,
   FETCH_SERVICE_SUCCESS,
   REQUEST_SERVICE,
-} from 'types';
+} from "types";
 
-import * as api from 'api';
+import * as api from "api";
 
 /*
 // fecting from database
@@ -56,5 +56,16 @@ export const fetchServiceById = (serviceId) => (dispatch, getState) => {
       type: FETCH_SERVICE_SUCCESS,
       service,
     })
+  );
+};
+
+export const register = (registerFormData) => (dispatch) => {
+  return api.register({ ...registerFormData }).then(
+    (_) => {
+      return true;
+    },
+    (errorMessage) => {
+      return Promise.reject(errorMessage);
+    }
   );
 };

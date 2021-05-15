@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { isValidImage } from "helpers/validators";
+import { isValidImage, isValidUrl, sameAs } from "helpers/validators";
 
 const RegisterForm = () => {
   // const { register, handleSubmit } = useForm();
@@ -8,6 +8,7 @@ const RegisterForm = () => {
     register,
     formState: { errors },
     handleSubmit,
+    getValues,
   } = useForm();
 
   const getFormData = (data) => {
@@ -72,7 +73,7 @@ const RegisterForm = () => {
           <input
             {...register("avatar", {
               required: true,
-              validate: { isValidImage },
+              validate: { isValidImage, isValidUrl },
             })}
             name="avatar"
             className="input is-large"
@@ -88,6 +89,9 @@ const RegisterForm = () => {
                 <span className="help is-danger">
                   Avatar extention is not valid
                 </span>
+              )}
+              {errors.avatar.type === "isValidUrl" && (
+                <span className="help is-danger">Avatar url is not valid</span>
               )}
             </div>
           )}
@@ -123,6 +127,7 @@ const RegisterForm = () => {
             {...register("passwordConfirmation", {
               required: true,
               minLength: 6,
+              validate: { sameAs: sameAs(getValues, "password") },
             })}
             name="passwordConfirmation"
             className="input is-large"
@@ -138,6 +143,11 @@ const RegisterForm = () => {
               {errors.passwordConfirmation.type === "minLength" && (
                 <span className="help is-danger">
                   Minimum length is 6 characters
+                </span>
+              )}
+              {errors.passwordConfirmation.type === "sameAs" && (
+                <span className="help is-danger">
+                  Password confirmation is not the same as password
                 </span>
               )}
             </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { isValidImage } from "helpers/validators";
 
 const RegisterForm = () => {
   // const { register, handleSubmit } = useForm();
@@ -26,7 +27,7 @@ const RegisterForm = () => {
             name="email"
             className="input is-large"
             type="email"
-            placeholder="Your Email"
+            placeholder="Your  Email"
             autoComplete="email"
           />
           {errors.email && (
@@ -71,8 +72,7 @@ const RegisterForm = () => {
           <input
             {...register("avatar", {
               required: true,
-              pattern:
-                /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/gm,
+              validate: { isValidImage },
             })}
             name="avatar"
             className="input is-large"
@@ -84,8 +84,10 @@ const RegisterForm = () => {
               {errors.avatar.type === "required" && (
                 <span className="help is-danger">Avatar is required</span>
               )}
-              {errors.avatar.type === "pattern" && (
-                <span className="help is-danger">Avatart is not valid</span>
+              {errors.avatar.type === "isValidImage" && (
+                <span className="help is-danger">
+                  Avatar extention is not valid
+                </span>
               )}
             </div>
           )}

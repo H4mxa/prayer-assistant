@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 const Navbar = (props) => {
   const { pathname } = useLocation();
   const { user, isAuth } = props.auth;
+  const { logout } = props;
   return (
     <nav
       id={props.id || ""}
@@ -130,11 +131,11 @@ const Navbar = (props) => {
             )}
 
             {isAuth && (
-              <Link className="navbar-item" to="/">
+              <div className="navbar-item" onClick={logout}>
                 <span className="button signup-button is-danger rounded  raised">
                   Logout
                 </span>
-              </Link>
+              </div>
             )}
           </div>
         </div>

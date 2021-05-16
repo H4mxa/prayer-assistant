@@ -157,7 +157,7 @@ Classes to change the feel of bulma buttons
   cursor: pointer;
   transition: all 0.5s;
   &.cta {
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
     font-size: 1rem;
     font-weight: 600;
     padding: 26px 40px 26px 40px;
@@ -179,7 +179,7 @@ Classes to change the feel of bulma buttons
   &.signup-button {
     font-size: 0.9rem;
     font-weight: 600;
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
     padding: 24px 26px;
     width: 130px;
   }
@@ -278,7 +278,7 @@ Cards and Card content styles
   margin: 0 auto;
 
   .card-title h4 {
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
     padding: 25px 25px 0px 35px;
     font-size: 1.2rem;
     font-weight: 600;
@@ -620,7 +620,7 @@ Hero styles
   padding-bottom: 6rem;
   .title,
   .subtitle {
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
   }
   .title {
     &.is-bold {
@@ -742,7 +742,7 @@ Hero styles
   }
   #logo {
     font-size: 1.5rem;
-    font-family: 'Lobster', cursive;
+    font-family: "Lobster", cursive;
   }
 }
 
@@ -762,9 +762,9 @@ Hero styles
 }
 
 // stroke button focus background fixed
-a.navbar-item:focus-within, a.navbar-item:hover {
-  background-color: #1b1b1b; 
-
+a.navbar-item:focus-within,
+a.navbar-item:hover {
+  background-color: #1b1b1b;
 }
 
 /* ==========================================================================
@@ -897,9 +897,7 @@ Responsive Styles
   }
 }
 
-
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-
   .navbar-menu {
     .navbar-end {
       a {
@@ -915,7 +913,6 @@ Responsive Styles
       }
     }
   }
-  
 
   .navbar-item {
     &.is-hidden-mobile {
@@ -959,7 +956,7 @@ Section Styles
   }
   .title,
   .subtitle {
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
   }
   .subtitle {
     &.is-muted {
@@ -974,7 +971,7 @@ Section Styles
   margin: 0 auto;
   .title,
   .subtitle {
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
   }
   .subtitle {
     &.is-muted {
@@ -1147,7 +1144,7 @@ Sidebar Styles
       max-width: 400px;
       list-style: none;
       list-style-type: none;
-      font-family: 'Open Sans', sans-serif !important;
+      font-family: "Open Sans", sans-serif !important;
       li {
         a {
           padding: 20px 25px;
@@ -1185,7 +1182,7 @@ Sidebar Styles
             position: absolute;
             top: 27px;
             right: 30px;
-            content: '\f054';
+            content: "\f054";
             color: $white;
             transition: all 0.5s;
             font-weight: 200 !important;
@@ -1259,8 +1256,8 @@ Testimonials Styles
   }
   blockquote:before,
   blockquote:after {
-    font-family: 'FontAwesome';
-    content: '\f10d';
+    font-family: "FontAwesome";
+    content: "\f10d";
     position: absolute;
     font-size: 20px;
     opacity: 0.3;
@@ -1271,7 +1268,7 @@ Testimonials Styles
     left: 20px;
   }
   blockquote:after {
-    content: '\f10e';
+    content: "\f10e";
     right: 20px;
     bottom: 35px;
   }
@@ -1395,8 +1392,8 @@ body #backtotop a {
 
 #backtotop a:after {
   outline: none;
-  content: '\f106';
-  font-family: 'FontAwesome';
+  content: "\f106";
+  font-family: "FontAwesome";
   position: relative;
   display: block;
   top: 50%;
@@ -1525,3 +1522,6 @@ body #backtotop a {
   }
 }
 
+.user-welcome {
+  cursor: pointer;
+}

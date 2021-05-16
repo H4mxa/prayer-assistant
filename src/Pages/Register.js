@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import RegisterForm from "Components/auth/RegisterForm";
 import { register } from "actions";
 import { useToasts } from "react-toast-notifications";
+import onlyGuest from "Components/hoc/onlyGuest";
 
 import { Redirect } from "react-router-dom";
 
@@ -56,4 +57,4 @@ const Register = (props) => {
 };
 
 // export default withRouter(Register);
-export default Register;
+export default onlyGuest(Register);

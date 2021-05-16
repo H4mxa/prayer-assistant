@@ -1,27 +1,16 @@
 import React from "react";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 
 const withAuthorization = (Component) => {
   class WithAuthorization extends React.Component {
-    state = {
-      secretData: "Hello world Screte!!!!",
-      secretNumber: 912083,
-    };
-
-    someSuperFuntionality() {
-      alert("I am Super");
-    }
-
     render() {
-      return (
-        <Component
-          {...this.state}
-          someSuperFuntionality={this.someSuperFuntionality}
-        />
-      );
+      const { auth, dispatch, ...rest } = this.props;
+      return auth.isAuth ? <Component {...rest} /> : <Redirect to="/login" />;
     }
   }
 
-  return WithAuthorization;
+  return connect(({ auth }) => ({ auth }))(WithAuthorization);
 };
 
 export default withAuthorization;

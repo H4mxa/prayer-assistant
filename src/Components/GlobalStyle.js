@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
     *{
@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
         }
     }
     body{
-        background: #1b1b1b;
+        // background: #1b1b1b;
         font-family: 'Inter', sans-serif;
         
   }
@@ -59,6 +59,9 @@ const GlobalStyle = createGlobalStyle`
     .my-font{
         font-family: 'Cinzel Decorative', cursive;
         color: white;
+    }
+    .body-color{
+        background: #1b1b1b;
     }
 `;
 export default GlobalStyle;

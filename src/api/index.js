@@ -30,6 +30,25 @@ export const fetchServices = () => {
   );
 };
 
+export const fetchUserServices = (userId) => {
+  // fetching data from firebase
+  return (
+    db
+      .collection("services")
+      // this will get my data
+      .where("user", "==", userId)
+      .get()
+      .then((snapshot) => {
+        // now uh can get this data from snapshot like this
+        const services = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        return services;
+      })
+  );
+};
+
 export const createService = (newService) => {
   return db
     .collection("services")

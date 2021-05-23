@@ -10,6 +10,7 @@ import LoginPage from "./Pages/Login";
 import RegisterPage from "./Pages/Register";
 import SecretPage from "./Pages/Secret";
 import ServiceCreatePage from "./Pages/services/ServiceCreate";
+import UserServicesPage from "./Pages/services/UserServices";
 
 const Routes = () => (
   <Switch>
@@ -21,6 +22,9 @@ const Routes = () => (
     </Route>
     <Route path="/Login">
       <LoginPage />
+    </Route>
+    <Route path="/services/me">
+      <UserServicesPage />
     </Route>
     <Route path="/services/new">
       <ServiceCreatePage />

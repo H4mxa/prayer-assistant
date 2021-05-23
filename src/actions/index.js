@@ -45,6 +45,10 @@ export const fetchServices = () => (dispatch) => {
   );
 };
 
+export const fetchUserServices = (userId) => {
+  return api.fetchUserServices(userId);
+};
+
 export const fetchServiceById = (serviceId) => (dispatch, getState) => {
   // checking equality of serviceid with id of service of state
   const lastService = getState().selectedService.item;

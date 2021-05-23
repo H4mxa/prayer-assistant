@@ -43,7 +43,7 @@ class Home extends React.Component {
     // // redux test state is specified here
     // const { testingData, testingNumber } = this.props.test;
     return (
-      <div>
+      <div className="body-color">
         <motion.div
           exit="exit"
           variants={pageAnimation}

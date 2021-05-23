@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { fetchServiceById, requestService, restPreviousService } from "actions";
 
 import Spinner from "Components/Spinner";
+import Modal from "Components/Modal";
 
 const ServiceDetail = (props) => {
   const { serviceId } = useParams();
@@ -37,9 +38,7 @@ const ServiceDetail = (props) => {
               <h2 className="subtitle is-4">{service.description}</h2>
               <br />
               <p className="has-text-centered">
-                <button className="button is-medium is-info is-outlined">
-                  Learn more
-                </button>
+                <Modal openButtonText="Make an offer" />
               </p>
             </div>
           </div>

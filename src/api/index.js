@@ -30,6 +30,13 @@ export const fetchServices = () => {
   );
 };
 
+export const createService = (newService) => {
+  return db
+    .collection("services")
+    .add(newService)
+    .then((docRef) => docRef.id);
+};
+
 // -------------------- SERVICES END -------------------
 
 // -------------------- AUTH -------------------

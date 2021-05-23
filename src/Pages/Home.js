@@ -61,7 +61,9 @@ class Home extends React.Component {
             <div className="container">
               {/* iterating over services */}
               <div className="content-wrapper">
-                <div className="columns">{this.renderServices(services)}</div>
+                <div className="columns is-multiline">
+                  {this.renderServices(services)}
+                </div>
               </div>
             </div>
           </section>

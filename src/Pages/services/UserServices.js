@@ -15,7 +15,7 @@ class UserServices extends React.Component {
   }
 
   render() {
-    const { services } = this.props;
+    const { services } = this.props.auth.user;
 
     return (
       <div className="container">
@@ -34,6 +34,4 @@ class UserServices extends React.Component {
   }
 }
 
-const mapStateToProps = ({ user }) => ({ services: user.services });
-
-export default withAuthorization(connect(mapStateToProps)(UserServices));
+export default withAuthorization(connect()(UserServices));

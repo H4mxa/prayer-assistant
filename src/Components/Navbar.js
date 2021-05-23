@@ -23,7 +23,7 @@ const Navbar = (props) => {
   return (
     <nav
       id={props.id || ""}
-      className="navbar is-fresh is-transparent no-shadow"
+      className="navbar is-fresh is-transparent no-shadow "
       role="navigation"
       aria-label="main navigation"
     >

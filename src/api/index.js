@@ -106,3 +106,8 @@ export const getUserProfile = (uid) =>
       uid,
       ...snapshot.data(),
     }));
+
+// export const createUserRef = (uid) => db.doc("profiles/", +uid);
+
+export const createRef = (collection, docId) =>
+  db.doc(`${collection}/` + docId);

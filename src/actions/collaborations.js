@@ -1,4 +1,7 @@
-import { COLLABORATION_CREATED_FROM_OFFER } from "types";
+import {
+  COLLABORATION_CREATED_FROM_OFFER,
+  FETCH_USER_MESSAGES_SUCCESS,
+} from "types";
 import * as api from "api";
 
 export const collaborate =
@@ -15,3 +18,8 @@ export const collaborate =
       });
       return collabId;
     });
+
+export const subscribeToMessages = (userId) => (dispatch) =>
+  api.subscribeToMessages(userId, (messages) =>
+    dispatch({ type: FETCH_USER_MESSAGES_SUCCESS, messages })
+  );

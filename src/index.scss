@@ -28,29 +28,25 @@ $dark-grey: #344258;
 $border-grey: #ccc;
 $muted-grey: #999;
 $section-grey: #fbfbfb;
+$section-grey: #fbfbfb;
 
-// MODAL
+.s-m-r {
+  margin-right: 5px;
+}
 
+@import "./styles/auth.scss";
+@import "./styles/services.scss";
+
+.feature-card.offer-card {
+  height: auto;
+  padding-bottom: 20px;
+}
+
+// Modal
 .modal {
   text-align: left;
 }
 
-//  SERVICE CREATE
-.create-page {
-  margin-top: 70px;
-  margin-bottom: 70px;
-  padding: 70px;
-  background-color: white;
-
-  .form-container {
-    max-width: 860px;
-    margin: 0 auto;
-  }
-
-  .field.is-grouped {
-    margin-top: 20px;
-  }
-}
 //  SERVICE CREATE END
 
 /* ==========================================================================
@@ -1507,43 +1503,6 @@ body #backtotop a {
   /* Firefox 18- */
 
   color: $placeholder;
-}
-
-// AUTH STARTS
-.auth-page {
-  background: #f2f6fa;
-  .hero.is-success {
-    background: #f2f6fa;
-  }
-  .hero .nav,
-  .hero.is-success .nav {
-    -webkit-box-shadow: none;
-    box-shadow: none;
-  }
-  .box {
-    margin-top: 5rem;
-  }
-  .avatar {
-    margin-top: -70px;
-    padding-bottom: 20px;
-  }
-  .avatar img {
-    padding: 5px;
-    background: #fff;
-    border-radius: 50%;
-    -webkit-box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1),
-      0 0 0 1px rgba(10, 10, 10, 0.1);
-    box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
-  }
-  input {
-    font-weight: 300;
-  }
-  p {
-    font-weight: 700;
-  }
-  p.subtitle {
-    padding-top: 1rem;
-  }
 }
 
 .user-welcome {

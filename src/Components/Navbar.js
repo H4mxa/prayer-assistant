@@ -98,23 +98,17 @@ const Navbar = (props) => {
             </Link>
           </div>
 
-          <div className="navbar-end parent">
-            {user && (
+          <div className="navbar-end">
+            {user.uid && (
               <div className="navbar-item is-secondary user-welcome">
                 {`Hi ${user.fullName}`}
               </div>
             )}
-            <Link to="/" className="navbar-item is-secondary child">
+            <Link to="/" className="navbar-item is-secondary">
               Home
-            </Link>
-            <Link to="/services" className="navbar-item is-secondary">
-              Services
             </Link>
             <Link to="/faq" className="navbar-item is-secondary">
               Faq
-            </Link>
-            <Link to="/profile" className="navbar-item is-secondary">
-              Profile
             </Link>
             {isAuth && (
               <React.Fragment>
@@ -146,27 +140,25 @@ const Navbar = (props) => {
                 </div>
               </React.Fragment>
             )}
-
             {!isAuth && (
               <React.Fragment>
                 <Link
                   to="/login"
-                  className="navbar-item is-second  ary modal-trigger"
+                  className="navbar-item is-secondary modal-trigger"
                   data-modal="auth-modal"
                 >
-                  Log in
+                  Login
                 </Link>
-                <Link className="navbar-item" to="/register">
+                <Link to="/register" className="navbar-item">
                   <span className="button signup-button rounded secondary-btn raised">
-                    Sign up
+                    Register
                   </span>
                 </Link>
               </React.Fragment>
             )}
-
             {isAuth && (
-              <div className="navbar-item" onClick={logout}>
-                <span className="button signup-button is-danger rounded  raised">
+              <div onClick={logout} className="navbar-item">
+                <span className="button signup-button is-danger rounded raised">
                   Logout
                 </span>
               </div>

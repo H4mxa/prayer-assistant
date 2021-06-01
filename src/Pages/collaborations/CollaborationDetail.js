@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import withAuthorization from "Components/hoc/withAuthorization";
 import { withRouter } from "react-router-dom";
+import { Timestamp } from "db";
 import moment from "moment";
 import {
   subToCollaboration,
@@ -10,9 +11,11 @@ import {
   subToProfile,
   sendChatMessage,
   subToMessages,
+  startCollaboration,
 } from "actions";
 import JoinedPeople from "Components/collaboration/JoinedPeople";
 import ChatMessages from "Components/collaboration/ChatMessages";
+import Timer from "Components/collaboration/Timer";
 
 class CollaborationDetail extends React.Component {
   state = {
@@ -79,7 +82,11 @@ class CollaborationDetail extends React.Component {
   };
 
   onStartCollaboration = (collaboration) => {
-    alert(`Starting collaboration: ${collaboration.title}`);
+    const { id, time } = collaboration;
+    const nowSeconds = Timestamp.now().seconds;
+
+    const expiresAt = new Timestamp(nowSeconds + time, 0);
+    startCollaboration(id, expiresAt);
   };
 
   componentWillUnmount() {
@@ -119,14 +126,17 @@ class CollaborationDetail extends React.Component {
                     />
                     <span className="textHeaderChatBoard">{user.fullName}</span>
                   </div>
-                  <div className="headerChatButton">
-                    <button
-                      onClick={() => this.onStartCollaboration(collaboration)}
-                      className="button is-success"
-                    >
-                      Start Collaboration
-                    </button>
-                  </div>
+                  {false && (
+                    <div className="headerChatButton">
+                      <button
+                        onClick={() => this.onStartCollaboration(collaboration)}
+                        className="button is-success"
+                      >
+                        Start Collaboration
+                      </button>
+                    </div>
+                  )}
+                  {true && <Timer />}
                 </div>
                 <div className="viewListContentChat">
                   <ChatMessages authUser={user} messages={messages} />

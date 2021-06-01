@@ -6,6 +6,7 @@ import FaqPage from "./Pages/Faq";
 import ProfilePage from "./Pages/Profile";
 import ServicesPage from "./Pages/Services";
 import ServiceDetailPage from "./Pages/ServiceDetail";
+import LogoutPage from "./Pages/Logout";
 import LoginPage from "./Pages/Login";
 import RegisterPage from "./Pages/Register";
 import SecretPage from "./Pages/Secret";
@@ -28,6 +29,9 @@ const Routes = () => (
     </Route>
     <Route path="/Login">
       <LoginPage />
+    </Route>
+    <Route path="/Logout">
+      <LogoutPage />
     </Route>
     <Route path="/collaborations/me">
       <ReceivedCollaborationsPage />

@@ -3,6 +3,7 @@ import {
   FETCH_USER_MESSAGES_SUCCESS,
   SET_COLLABORATION,
   SET_COLLABORATION_JOINED_PEOPLE,
+  UPDATE_COLLABORATION_USER,
 } from "types";
 import * as api from "api";
 
@@ -55,7 +56,7 @@ export const subToCollaboration = (collabId, done) => (dispatch) =>
 export const joinCollaboration = (collabId, userId) =>
   api.joinCollaboration(collabId, userId);
 
-export const subToProfile = (uid) =>
-  api.subToProfile(uid, (user) => {
-    console.log(user);
-  });
+export const subToProfile = (uid) => (dispatch) =>
+  api.subToProfile(uid, (user) =>
+    dispatch({ type: UPDATE_COLLABORATION_USER, user })
+  );

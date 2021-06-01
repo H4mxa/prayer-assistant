@@ -17,6 +17,7 @@ import {
   onAuthStateChanged,
   storeAuthUser,
   subscribeToMessages,
+  checkUserConnection,
 } from "actions";
 
 const store = initStore();
@@ -27,6 +28,7 @@ class App extends React.Component {
       store.dispatch(storeAuthUser(authUser));
 
       if (authUser) {
+        checkUserConnection(authUser.uid);
         this.unsubscribeMessages = store.dispatch(
           subscribeToMessages(authUser.uid)
         );

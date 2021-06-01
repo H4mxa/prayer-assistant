@@ -78,9 +78,13 @@ class CollaborationDetail extends React.Component {
       content: inputValue.trim(),
     };
 
-    sendChatMessage({ message, collabId: collaboration.id, timestamp }).then(
-      (_) => this.setState({ inputValue: "" })
-    );
+    this.props
+      .sendChatMessage({ message, collabId: collaboration.id, timestamp })
+      .then((_) => this.setState({ inputValue: "" }))
+      .catch((error) => {
+        // this.setState({inputValue: ''})
+        alert(error);
+      });
   };
 
   onStartCollaboration = (collaboration) => {
@@ -184,14 +188,14 @@ class CollaborationDetail extends React.Component {
                       this.setState({ inputValue: e.target.value })
                     }
                     onKeyPress={this.onKeyboardPress}
-                    // disabled={status === "finished" || status === "notStarted"}
+                    // disabled={status === 'finished' || status === 'notStarted'}
                     value={inputValue}
                     className="viewInput"
                     placeholder="Type your message..."
                   />
                   <button
                     onClick={() => this.onSendMessage(inputValue)}
-                    // disabled={status === "finished" || status === "notStarted"}
+                    // disabled={status === 'finished' || status === 'notStarted'}
                     className="button is-primary is-large"
                   >
                     Send
@@ -210,6 +214,7 @@ const mapDispatchToProps = () => ({
   subToCollaboration,
   subToProfile,
   subToMessages,
+  sendChatMessage,
 });
 
 const mapStateToProps = ({ collaboration }) => {

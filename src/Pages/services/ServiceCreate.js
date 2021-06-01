@@ -45,6 +45,7 @@ const ServiceCreate = ({ auth }) => {
                     <option value="quran">Quran</option>
                     <option value="dua">Dua</option>
                     <option value="janazah">Janazah</option>
+                    <option value="programming">Programming</option>
                   </select>
                 </div>
               </div>
